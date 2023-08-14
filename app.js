@@ -3,9 +3,14 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var detailsRoute = require("./details.js");
-var authRoute = require("./auth.js");
-var adminUpdateRoute = require("./admin.js");
+const { login, createAccount } = require("./controllerAuth.js");
+var detailsRoute = require("./controllerDetails.js");
+const {
+  addToDetails,
+  getDetails,
+  deleteDetail,
+} = require("./controllerDetails.js");
+const { update } = require("./controllerAdmin.js");
 let mongoose = require("mongoose");
 let cors = require("cors");
 
@@ -26,9 +31,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/auth", authRoute);
-app.use("/details", detailsRoute);
-app.use("/admin", adminUpdateRoute);
+app.post("/auth/login", login);
+app.post("/auth/reg", createAccount);
+app.post("/details/add", addToDetails);
+app.get("/details/get", getDetails);
+app.put("/details/del", deleteDetail);
+app.post("/admin/", update);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
