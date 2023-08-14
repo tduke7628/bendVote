@@ -3,9 +3,9 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var detailsRoute = require("./routes/details.js");
-var authRoute = require("./routes/auth.js");
-var adminUpdateRoute = require("./routes/admin.js");
+var detailsRoute = require("./details.js");
+var authRoute = require("./auth.js");
+var adminUpdateRoute = require("./admin.js");
 let mongoose = require("mongoose");
 let cors = require("cors");
 
