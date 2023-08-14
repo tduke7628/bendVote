@@ -8,4 +8,4 @@ const User = new mongoose.Schema({
   voteTotal: { type: String },
   timestamps: { type: Date, createdAt: "created_at", updatedAt: "updated_at" },
 });
-module.exports = mongoose.model("votng-users", User);
+module.exports = mongoose.model("votng-users-tol", User);
