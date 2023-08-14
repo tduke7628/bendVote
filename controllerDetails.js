@@ -1,4 +1,4 @@
-let Details = require("../models/details.js");
+let Details = require("./details.js");
 exports.addToDetails = async (req, res) => {
   const details = new Details({
     username: req.body.username,
