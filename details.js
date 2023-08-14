@@ -12,4 +12,4 @@ const detailsSchema = new mongoose.Schema({
   org: { type: String, required: true },
   timestamps: { type: Date, createdAt: "created_at", updatedAt: "updated_at" },
 });
-module.exports = mongoose.model("votng-details", detailsSchema);
+module.exports = mongoose.model("votng-details-tol", detailsSchema);
